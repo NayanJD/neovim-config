@@ -27,7 +27,9 @@ let mapleader=","
 
 call plug#begin("~/.vim/plugged")
  " Plugin Section
- Plug 'dracula/vim'
+ "Plug 'dracula/vim'
+ "Plug 'yashguptaz/calvera-dark.nvim'
+ Plug 'marko-cerovac/material.nvim'
  Plug 'nvim-tree/nvim-web-devicons'
  Plug 'ryanoasis/vim-devicons'
  Plug 'SirVer/ultisnips'
@@ -46,6 +48,7 @@ call plug#begin("~/.vim/plugged")
  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
  Plug 'lewis6991/gitsigns.nvim'
  Plug 'kdheepak/lazygit.nvim'
+ Plug 'f-person/git-blame.nvim'
 call plug#end()
 
 
@@ -54,8 +57,10 @@ call plug#end()
  set termguicolors
  endif
  syntax enable
- " colorscheme evening
-colorscheme dracula
+
+ " colorscheme calvera
+colorscheme material
+
 " open new split panes to right and below
 set splitright
 set splitbelow
@@ -158,15 +163,17 @@ nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 
-"lua require('plugins')
 
 
 " NerdTree configurations
 "
 let NERDTreeShowHidden=1
+
+
 " Coc configurations
 "
 
+let g:coc_global_extensions = ['coc-json']
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
@@ -331,3 +338,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
+
+
+
+lua require('material.functions').change_style("palenight")
