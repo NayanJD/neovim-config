@@ -49,7 +49,13 @@ call plug#begin("~/.vim/plugged")
  Plug 'lewis6991/gitsigns.nvim'
  Plug 'kdheepak/lazygit.nvim'
  Plug 'f-person/git-blame.nvim'
+ Plug 'hashivim/vim-terraform'
+ Plug 'liuchengxu/vim-which-key'
+ Plug 'tpope/vim-commentary'
 call plug#end()
+
+
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 
 " color schemes
@@ -80,6 +86,9 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" split panes vertically using leader
+nnoremap <leader>p <C-w>v
 
 " Press i to enter insert mode, and ii to exit insert mode.
 :inoremap ii <Esc>
