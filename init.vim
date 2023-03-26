@@ -23,6 +23,8 @@ set ttyfast                 " Speed up scrolling in Vim
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files
 
+set makeprg=make\ buildnrun\ FILENAME=%\
+
 let mapleader=","
 
 call plug#begin("~/.vim/plugged")
@@ -52,6 +54,13 @@ call plug#begin("~/.vim/plugged")
  Plug 'hashivim/vim-terraform'
  Plug 'liuchengxu/vim-which-key'
  Plug 'tpope/vim-commentary'
+
+" Code formatting (for c++)
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 
@@ -351,3 +360,9 @@ nnoremap <silent> <leader>gg :LazyGit<CR>
 
 
 lua require('material.functions').change_style("deep ocean")
+
+autocmd FileType c,cpp AutoFormatBuffer clang-format
+
+lua << EOF
+require("nvim-autopairs").setup {}
+EOF
