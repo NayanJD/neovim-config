@@ -60,7 +60,6 @@ Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
 
-Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 
@@ -363,6 +362,3 @@ lua require('material.functions').change_style("deep ocean")
 
 autocmd FileType c,cpp AutoFormatBuffer clang-format
 
-lua << EOF
-require("nvim-autopairs").setup {}
-EOF
